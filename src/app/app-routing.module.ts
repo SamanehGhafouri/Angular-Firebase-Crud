@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {PolicyListComponent} from "./policy-list/policy-list.component";
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'policylist', component: PolicyListComponent}
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

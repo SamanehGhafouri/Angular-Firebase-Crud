@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFireDatabaseModule} from "@angular/fire/database";
+import { PolicyListComponent } from './policy-list/policy-list.component';
+import {PolicyService} from "./policy.service";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PolicyListComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +20,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [PolicyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
