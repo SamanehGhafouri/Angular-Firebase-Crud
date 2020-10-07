@@ -2,16 +2,31 @@ import {Data} from "@angular/router";
 
 export class Policy {
   id: string;
+  policyNumber: string;
+  policyAmount: number;
+  creationDate: Date;
+  expirationDate: Date;
+  paymentOption: string;
+  extraInfo: string;
+
+
   constructor(
     id: string,
-    private policyNumber: string,
-    private policyAmount: number,
-    private creationDate: Date,
-    private expirationDate: Date,
-    private paymentOption: string,
-    private extraInfo: string) {
+    policyNumber: string,
+    policyAmount: number,
+    creationDate: Date,
+    expirationDate: Date,
+    paymentOption: string,
+    extraInfo: string) {
 
     this.id = id;
+    this.policyNumber = policyNumber;
+    this.policyAmount = policyAmount;
+    this.creationDate = creationDate;
+    this.expirationDate = expirationDate;
+    this.paymentOption = paymentOption;
+    this.extraInfo = extraInfo;
+
   }
 
   document(): any {

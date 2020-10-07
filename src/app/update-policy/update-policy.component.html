@@ -1,1 +1,24 @@
-<p>update-policy works!</p>
+<form *ngIf="policyForm" [formGroup]="policyForm" >
+
+  <div>
+    <input type="text" formControlName="policyNumber" placeholder="policy number">
+  </div>
+  <div>
+    <input type="text" formControlName="policyAmount" placeholder="policy amount">
+  </div>
+  <div>
+    <input type="text" formControlName="creationDate" placeholder="creation date">
+  </div>
+  <div>
+    <input type="text" formControlName="expirationDate" placeholder="expiration date">
+  </div>
+  <div>
+    <input type="text" formControlName="paymentOption" placeholder="payment option">
+  </div>
+  <div>
+    <input type="text" formControlName="extraInfo" placeholder="extra Info">
+  </div>
+
+  <button (click)="updatePolicy()">Update</button>
+
+</form>

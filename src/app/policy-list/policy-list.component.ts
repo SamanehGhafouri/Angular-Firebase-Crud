@@ -3,6 +3,7 @@ import {Policy} from "../policy.model";
 import {PolicyService} from "../policy.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import {DataPassingService} from "../data-passing.service";
 
 @Component({
   selector: 'app-policy-list',
@@ -12,7 +13,7 @@ import {Router} from "@angular/router";
 export class PolicyListComponent implements OnInit {
   policies: Policy[];
 
-  constructor(private policyService: PolicyService, private router:Router) { }
+  constructor(private policyService: PolicyService, private router:Router, private dataPassing: DataPassingService) { }
 
   ngOnInit(){
     this.policyService.getPolicies().subscribe(data => {
@@ -26,13 +27,12 @@ export class PolicyListComponent implements OnInit {
 
   }
   create(){
-    // this.policyService.createPolicy(policy);
     this.router.navigate(['cratepolicy']);
 
   }
 
   update(policy: Policy){
-    this.policyService.updatePolicy(policy);
+    this.dataPassing.policy = policy;
     this.router.navigate(['updatepolicy']);
   }
 

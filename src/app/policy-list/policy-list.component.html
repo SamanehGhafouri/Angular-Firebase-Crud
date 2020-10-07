@@ -1,32 +1,32 @@
 <table>
   <thead>
-  <th>[id]  </th>
-    <th>[Number]  </th>
-    <th>[Amount]  </th>
-    <th>[Created]  </th>
-    <th>[Expire]  </th>
-  <th>[PaymentOption]  </th>
-  <th>[ExtraInfo]  </th>
+  <th>[id]</th>
+  <th>[Number]</th>
+  <th>[Amount]</th>
+  <th>[Created]</th>
+  <th>[Expire]</th>
+  <th>[PaymentOption]</th>
+  <th>[ExtraInfo]</th>
 
 
   </thead>
   <tbody>
-    <tr *ngFor="let policy of policies">
-      <td>{{policy.id}}</td>
-      <td>{{policy.policyNumber}}</td>
-      <td>{{policy.policyAmount}}</td>
-      <td>{{policy.creationDate}}</td>
-      <td>{{policy.expirationDate}}</td>
-      <td>{{policy.paymentOption}}</td>
-      <td>{{policy.extraInfo}}</td>
+  <tr *ngFor="let policy of policies">
+    <td>{{policy.id}}</td>
+    <td>{{policy.policyNumber}}</td>
+    <td>{{policy.policyAmount}}</td>
+    <td>{{policy.creationDate}}</td>
+    <td>{{policy.expirationDate}}</td>
+    <td>{{policy.paymentOption}}</td>
+    <td>{{policy.extraInfo}}</td>
 
-      <td>
-        <button (click)="delete(policy.id)">Delete</button>
-        <button (click)="create()">Create</button>
-        <button (click)="update(policy)">Update</button>
+    <td>
+      <button (click)="delete(policy.id)">Delete</button>
+      <button (click)="create()">Create</button>
+      <button (click)="update(policy)">Update</button>
 
 
-      </td>
-    </tr>
+    </td>
+  </tr>
   </tbody>
 </table>
