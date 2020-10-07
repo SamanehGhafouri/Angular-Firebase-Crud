@@ -4,22 +4,24 @@ export class Policy {
   id: string;
   constructor(
     id: string,
-    private policyNumber: string, private policyAmount: number) {
+    private policyNumber: string,
+    private policyAmount: number,
+    private creationDate: Date,
+    private expirationDate: Date,
+    private paymentOption: string,
+    private extraInfo: string) {
 
-    this.id = id
+    this.id = id;
   }
-  // // id: string;
-  // policyNumber: string;
-  // creationDate: Data;
-  // effectiveDate: Date;
-  // expireDate: Date;
-  // paymentOption: string;
-  // policyAmount: number;
-  // extraInfo: string;
+
   document(): any {
     return {
       policyNumber: this.policyNumber,
-      policyAmount: this.policyAmount
+      policyAmount: this.policyAmount,
+      creationDate: this.creationDate,
+      expirationDate: this.expirationDate,
+      paymentOption: this.paymentOption,
+      extraInfo: this.extraInfo
     }
   }
 }

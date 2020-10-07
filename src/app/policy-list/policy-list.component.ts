@@ -11,7 +11,6 @@ import {Router} from "@angular/router";
 })
 export class PolicyListComponent implements OnInit {
   policies: Policy[];
-  addPolicies: FormGroup;
 
   constructor(private policyService: PolicyService, private router:Router) { }
 
@@ -26,8 +25,8 @@ export class PolicyListComponent implements OnInit {
     });
 
   }
-  create(policy: Policy){
-    this.policyService.createPolicy(policy);
+  create(){
+    // this.policyService.createPolicy(policy);
     this.router.navigate(['cratepolicy']);
 
   }
