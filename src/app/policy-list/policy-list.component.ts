@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Policy} from "../policy.model";
 import {PolicyService} from "../policy.service";
+import {FormControl, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-policy-list',
@@ -9,8 +11,9 @@ import {PolicyService} from "../policy.service";
 })
 export class PolicyListComponent implements OnInit {
   policies: Policy[];
+  addPolicies: FormGroup;
 
-  constructor(private policyService: PolicyService) { }
+  constructor(private policyService: PolicyService, private router:Router) { }
 
   ngOnInit(){
     this.policyService.getPolicies().subscribe(data => {
@@ -21,13 +24,17 @@ export class PolicyListComponent implements OnInit {
         } as Policy;
       })
     });
+
   }
   create(policy: Policy){
     this.policyService.createPolicy(policy);
+    this.router.navigate(['cratepolicy']);
+
   }
 
   update(policy: Policy){
     this.policyService.updatePolicy(policy);
+    this.router.navigate(['updatepolicy']);
   }
 
   delete(id: string){

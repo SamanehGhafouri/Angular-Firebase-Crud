@@ -16,7 +16,7 @@ export class PolicyService {
 
   // create
   createPolicy(policy: Policy){
-    return this.firestore.collection('policies').add(policy);
+    return this.firestore.collection('policies').add(policy.document());
   }
 
   // update
@@ -29,4 +29,6 @@ export class PolicyService {
   deletePolicy(policyId: string){
     this.firestore.doc('policies/' + policyId).delete();
   }
+
+
 }

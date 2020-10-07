@@ -1,0 +1,18 @@
+<form [formGroup]="policyForm" >
+
+  <div>
+    <input type="text" formControlName="policyNumber" placeholder="policy number">
+  </div>
+  <div>
+    <input type="text" formControlName="creationDate" placeholder="creation date">
+  </div>
+  <div>
+    <input type="text" formControlName="expireDate" placeholder="expiration date">
+  </div>
+  <div>
+    <input type="text" formControlName="policyAmount" placeholder="policy amount">
+  </div>
+
+  <button (click)="submitPolicy()">Create</button>
+
+</form>
