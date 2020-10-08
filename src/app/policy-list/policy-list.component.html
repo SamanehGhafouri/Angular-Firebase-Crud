@@ -11,7 +11,6 @@
   <th>[PaymentOption]</th>
   <th>[ExtraInfo]</th>
 
-
   </thead>
   <tbody>
   <tr *ngFor="let policy of policies">
@@ -25,9 +24,7 @@
 
     <td>
       <button (click)="delete(policy.id)">Delete</button>
-<!--      <button (click)="create()">Create</button>-->
       <button (click)="update(policy)">Update</button>
-
 
     </td>
   </tr>

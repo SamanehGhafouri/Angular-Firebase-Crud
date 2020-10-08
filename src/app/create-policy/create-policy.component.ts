@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PolicyService} from "../policy.service";
 import {Policy} from "../policy.model";
-import {createAotCompiler} from "@angular/compiler";
 import {Router} from "@angular/router";
 
 @Component({
@@ -13,6 +12,7 @@ import {Router} from "@angular/router";
 export class CreatePolicyComponent implements OnInit {
   policyForm: FormGroup;
   policies: Policy[];
+  policy: Policy;
 
   constructor(private policyService:PolicyService, private router:Router) { }
 
@@ -22,15 +22,18 @@ export class CreatePolicyComponent implements OnInit {
 
   ngOnInit(){
     this.policyForm = new FormGroup({
-      policyNumber: new FormControl(),
-      policyAmount: new FormControl(),
-      creationDate: new FormControl(),
-      expirationDate: new FormControl(),
-      paymentOption: new FormControl(),
-      extraInfo: new FormControl()
+      policyNumber: new FormControl("",[Validators.required, Validators.minLength(1)]),
+      policyAmount: new FormControl("",[Validators.required, Validators.minLength(1)]),
+      creationDate: new FormControl("",[Validators.required, Validators.minLength(1)]),
+      expirationDate: new FormControl("",[Validators.required, Validators.minLength(1)]),
+      paymentOption: new FormControl("",[Validators.required, Validators.minLength(1)]),
+      extraInfo: new FormControl("",[Validators.required, Validators.minLength(1)])
     });
   }
   submitPolicy(){
+    if(this.policyForm.invalid){
+      return
+    }
     const policy = new Policy(
       null,
       this.policyForm.value.policyNumber,
@@ -39,8 +42,6 @@ export class CreatePolicyComponent implements OnInit {
       this.policyForm.value.expirationDate,
       this.policyForm.value.paymentOption,
       this.policyForm.value.extraInfo
-
-
     );
 
     this.policyService.createPolicy(policy);

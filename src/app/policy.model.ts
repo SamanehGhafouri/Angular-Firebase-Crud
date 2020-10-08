@@ -1,4 +1,3 @@
-import {Data} from "@angular/router";
 
 export class Policy {
   id: string;
@@ -31,7 +30,6 @@ export class Policy {
 
   document(): any {
     return {
-      id: this.id,
       policyNumber: this.policyNumber,
       policyAmount: this.policyAmount,
       creationDate: this.creationDate,

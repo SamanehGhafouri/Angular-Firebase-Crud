@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Policy} from "../policy.model";
 import {PolicyService} from "../policy.service";
-import {FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {DataPassingService} from "../data-passing.service";
 

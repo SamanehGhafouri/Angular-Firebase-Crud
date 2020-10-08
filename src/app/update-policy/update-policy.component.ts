@@ -21,31 +21,23 @@ export class UpdatePolicyComponent implements OnInit {
 
   ngOnInit() {
 
-    // if (!this.dataPassing.policy) {
-    //   this.router.navigate(['policylist'])
-    //   return;
-    // }
+    if (!this.dataPassing.policy) {
+      this.router.navigate(['policylist'])
+      return;
+    }
 
     this.policyForm = new FormGroup({
-      // policyNumber: new FormControl(this.dataPassing.policy.policyNumber),
-      // policyAmount: new FormControl(this.dataPassing.policy.policyAmount),
-      // creationDate: new FormControl(this.dataPassing.policy.creationDate),
-      // expirationDate: new FormControl(this.dataPassing.policy.expirationDate),
-      // paymentOption: new FormControl(this.dataPassing.policy.paymentOption),
-      // extraInfo: new FormControl(this.dataPassing.policy.extraInfo)
-
-      policyNumber: new FormControl("", [Validators.required, Validators.minLength(1)]),
-      policyAmount: new FormControl("", [Validators.required, Validators.minLength(1)]),
-      creationDate: new FormControl("", [Validators.required, Validators.minLength(1)]),
-      expirationDate: new FormControl("", [Validators.required, Validators.minLength(1)]),
-      paymentOption: new FormControl("", [Validators.required, Validators.minLength(1)]),
-      extraInfo: new FormControl("", [Validators.required, Validators.minLength(1)])
+      policyNumber: new FormControl(this.dataPassing.policy.policyNumber, [Validators.required, Validators.minLength(1)]),
+      policyAmount: new FormControl(this.dataPassing.policy.policyAmount, [Validators.required, Validators.minLength(1)]),
+      creationDate: new FormControl(this.dataPassing.policy.creationDate, [Validators.required, Validators.minLength(1)]),
+      expirationDate: new FormControl(this.dataPassing.policy.expirationDate, [Validators.required, Validators.minLength(1)]),
+      paymentOption: new FormControl(this.dataPassing.policy.paymentOption, [Validators.required, Validators.minLength(1)]),
+      extraInfo: new FormControl(this.dataPassing.policy.extraInfo, [Validators.required, Validators.minLength(1)])
     });
   }
 
   updatePolicy() {
     if (this.policyForm.invalid) {
-      console.log("Complete the form please");
       return
     }
       const policy = new Policy(
@@ -58,7 +50,6 @@ export class UpdatePolicyComponent implements OnInit {
         this.policyForm.value.extraInfo
       );
       this.policyService.updatePolicy(policy);
-
 
     this.router.navigate(['policylist']);
   }
